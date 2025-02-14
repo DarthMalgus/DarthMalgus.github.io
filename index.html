@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiempo con mi Amor &#10084;&#65039</title>
+    <title>Tiempo con mi Amor ❤️</title>
     <style>
         body {
             text-align: center;
@@ -11,6 +11,7 @@
             background-color: #ffe6e6;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
         h1 {
             color: #d6336c;
@@ -33,13 +34,29 @@
             margin: 20px;
             padding: 10px;
         }
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            color: red;
+            animation: floatUp 2s linear forwards;
+        }
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh);
+            }
+        }
     </style>
 </head>
-<body>
-    <h1>Tiempo con mi amor &#10084;&#65039</h1>
+<body onclick="showHearts(event)">
+    <h1>Tiempo con mi amor ❤️</h1>
     <img src="MyA.jpeg" alt="Nosotros">
     <div id="contador"></div>
-    <p>Este es el 7mo San Valentín contigo mi amor, y agradezco cada uno de los días que estoy a tu lado, te amo, y mi vida es perfecta porque tú estás. Eres una increíble mujer, una niña chiqueada, una estudiante aplicada e inteligente, una hija responsable y amorosa, y una pareja perfecta, espero estar todos los años de mi vida contigo, TE AMO &#10084;&#65039</p>
+    <p>Este es el 7mo San Valentín contigo mi amor, y agradezco cada uno de los días que estoy a tu lado, te amo, y mi vida es perfecta porque tú estás. Eres una increíble mujer, una niña chiqueada, una estudiante aplicada e inteligente, una hija responsable y amorosa, y una pareja perfecta, espero estar todos los años de mi vida contigo, TE AMO ❤️</p>
 
     <script>
         function actualizarContador() {
@@ -59,6 +76,20 @@
         }
 
         setInterval(actualizarContador, 1000);
+
+        function showHearts(event) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            document.body.appendChild(heart);
+
+            heart.style.left = `${event.clientX}px`;
+            heart.style.top = `${event.clientY}px`;
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
     </script>
 </body>
 </html>
