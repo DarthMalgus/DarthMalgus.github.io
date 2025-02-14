@@ -34,7 +34,7 @@
             margin: 20px;
             padding: 10px;
         }
-        .heart {
+        .floating-text {
             position: absolute;
             font-size: 2em;
             color: red;
@@ -52,7 +52,7 @@
         }
     </style>
 </head>
-<body onclick="showHearts(event)">
+<body onclick="showLoveMessage(event)">
     <h1>Tiempo con mi amor ❤️</h1>
     <img src="MyA.jpeg" alt="Nosotros">
     <div id="contador"></div>
@@ -77,17 +77,17 @@
 
         setInterval(actualizarContador, 1000);
 
-        function showHearts(event) {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "Te amo Memi ❤️";
-            document.body.appendChild(heart);
+        function showLoveMessage(event) {
+            const message = document.createElement("div");
+            message.classList.add("floating-text");
+            message.innerHTML = "Te amo memi ❤️";
+            document.body.appendChild(message);
 
-            heart.style.left = `${event.clientX}px`;
-            heart.style.top = `${event.clientY}px`;
+            message.style.left = `${event.clientX}px`;
+            message.style.top = `${event.clientY}px`;
 
             setTimeout(() => {
-                heart.remove();
+                message.remove();
             }, 2000);
         }
     </script>
